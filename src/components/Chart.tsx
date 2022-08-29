@@ -31,7 +31,7 @@ type LineSeriesChartItemType = {
   };
   tooltipText?: string | undefined;
   name?: string | undefined;
-  strokeWidth?: number;
+  strokeWidth?: number | undefined;
   stroke?: any;
   strokeDasharray?: string | undefined;
   tooltip: any;
