@@ -5,6 +5,8 @@
 .env
 
 # next.js
-/.next/
+/.next/trace/
+/.next/cache/
+/.next/static/
 /_static/
 /build/
