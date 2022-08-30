@@ -20,8 +20,8 @@ const Map = (): JSX.Element => {
         enableBackground="new 0 0 450 460"
       >
         <g>
-          {mapBrData.map(({ uf, transform, d, name, code}) => (
-            <a className="estado" name={name} code={code} onClick={() => showDataUF(uf)}>
+          {mapBrData.map(({ uf, transform, d }) => (
+            <a className="estado" onClick={() => showDataUF(uf)}>
             <path
               stroke="#FFFFFF"
               stroke-width="1.0404"

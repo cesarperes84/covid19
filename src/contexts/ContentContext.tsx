@@ -9,10 +9,8 @@ import initialState from './initialStateContext';
 import { ActionType, reducer, StateType, Types } from '../reducers/reducersContent';
 interface ContentContextData extends StateType {
   dispatchContent: Dispatch<ActionType>,
-  handleSearch: any,
   loadData: any,
   loadTotalData: any,
-  optionsWithNoFilter: any,
 };
 interface Props {
   children: React.ReactNode;
@@ -31,7 +29,6 @@ const ContentProvider = ({children}: Props): JSX.Element => {
   const loadData = useCallback(() => {
     const response = getData();
     dispatchContent({ type: Types.SetResults, payload: response  });
-    // return response;
    /* dispatchContent({ type: Types.SetStatusDayContent, payload: 'loading' });
     getData()
       .then((response) => {
@@ -46,7 +43,6 @@ const ContentProvider = ({children}: Props): JSX.Element => {
   const loadTotalData = useCallback(() => {
     const response = getTotalData();
     dispatchContent({ type: Types.SetTotalResults, payload: response  });
-    // dispatchContent({ type: Types.SetContent, payload: response  });
     /* dispatchContent({ type: Types.SetStatusDayContent, payload: 'loading' });
     getTotalData()
       .then((response: { data: any; }) => {

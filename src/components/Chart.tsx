@@ -2,13 +2,12 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_dark from '@amcharts/amcharts4/themes/dark';
 import am4lang_pt_BR from '@amcharts/amcharts4/lang/pt_BR';
 
-am4core.useTheme(am4themes_dark);
 
 type DataType = {
   date: string;
@@ -39,9 +38,10 @@ type LineSeriesChartItemType = {
 };
 
 const Chart = ({ id, label, total }: { id: string; label: string; total: any }): JSX.Element => {
+  am4core.useTheme(am4themes_dark);
   const chart = useRef(null);
-  useLayoutEffect(() => {
-    // definindo container de casos novos diarios
+  
+  useEffect(() => {
     let chartItem = am4core.create(id, am4charts.XYChart);
     chartItem.language.locale = am4lang_pt_BR;
 
