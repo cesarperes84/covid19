@@ -27,30 +27,30 @@ const ContentProvider = ({children}: Props): JSX.Element => {
   const [state, dispatchContent] = useReducer(reducer, initialState);
 
   const loadData = useCallback(() => {
-    const response = getData();
-    dispatchContent({ type: Types.SetResults, payload: response  });
-   /* dispatchContent({ type: Types.SetStatusDayContent, payload: 'loading' });
+    /* const response = getData();
+    dispatchContent({ type: Types.SetResults, payload: response  }); */
+   dispatchContent({ type: Types.SetStatusResult, payload: 'loading' });
     getData()
       .then((response) => {
         console.log('response', response);
-        dispatchContent({ type: Types.SetDayContent, payload: response.data  });
+        dispatchContent({ type: Types.SetResults, payload: response.data  });
       })
-      .catch((error) => {
-        dispatchContent({ type: Types.SetStatusDayContent, payload: 'error' });
-      }); */
+      .catch(() => {
+        dispatchContent({ type: Types.SetStatusResult, payload: 'error' });
+      });
   }, []);
 
   const loadTotalData = useCallback(() => {
-    const response = getTotalData();
-    dispatchContent({ type: Types.SetTotalResults, payload: response  });
-    /* dispatchContent({ type: Types.SetStatusDayContent, payload: 'loading' });
+    /* const response = getTotalData();
+    dispatchContent({ type: Types.SetTotalResults, payload: response  }); */
+    dispatchContent({ type: Types.SetStatusTotalResults, payload: 'loading' });
     getTotalData()
       .then((response: { data: any; }) => {
-        dispatchContent({ type: Types.SetDayContent, payload: response.data  });
+        dispatchContent({ type: Types.SetTotalResults, payload: response.data  });
       })
-      .catch((error) => {
-        dispatchContent({ type: Types.SetStatusDayContent, payload: 'error' });
-      }); */
+      .catch(() => {
+        dispatchContent({ type: Types.SetStatusTotalResults, payload: 'error' });
+      });
   }, []);
 
 
