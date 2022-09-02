@@ -60,7 +60,7 @@ const Chart = ({ id, label, total }: { id: string; label: string; total: any }):
       const dateEvent = data.date;
       const index = dictionary[id as keyof DictionaryType];
 
-      console.log('total', typeof index);
+
       let values = data[index];
       if (values != 0) {
         chartItem['data'].push({

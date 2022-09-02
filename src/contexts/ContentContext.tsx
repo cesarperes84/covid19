@@ -1,8 +1,8 @@
 import { createContext, useContext, useMemo, useReducer, Dispatch, useCallback, } from 'react';
 
 import {
-  getData,
-  getTotalData,
+  getStats,
+  getDailyStats,
 } from '../services/contentServices';
 
 import initialState from './initialStateContext';
@@ -27,12 +27,9 @@ const ContentProvider = ({children}: Props): JSX.Element => {
   const [state, dispatchContent] = useReducer(reducer, initialState);
 
   const loadData = useCallback(() => {
-    /* const response = getData();
-    dispatchContent({ type: Types.SetResults, payload: response  }); */
    dispatchContent({ type: Types.SetStatusResult, payload: 'loading' });
-    getData()
-      .then((response) => {
-        console.log('response', response);
+    getStats()
+      .then((response: { data: any; }) => {
         dispatchContent({ type: Types.SetResults, payload: response.data  });
       })
       .catch(() => {
@@ -41,10 +38,8 @@ const ContentProvider = ({children}: Props): JSX.Element => {
   }, []);
 
   const loadTotalData = useCallback(() => {
-    /* const response = getTotalData();
-    dispatchContent({ type: Types.SetTotalResults, payload: response  }); */
     dispatchContent({ type: Types.SetStatusTotalResults, payload: 'loading' });
-    getTotalData()
+    getDailyStats()
       .then((response: { data: any; }) => {
         dispatchContent({ type: Types.SetTotalResults, payload: response.data  });
       })

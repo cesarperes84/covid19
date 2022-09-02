@@ -24,9 +24,9 @@ const Map = (): JSX.Element => {
             <a className="estado" onClick={() => showDataUF(uf)}>
             <path
               stroke="#FFFFFF"
-              stroke-width="1.0404"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.0404"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d={d}
             ></path>
             <text transform={transform} fill="#222222">{uf}</text>
