@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 
 import styles from '../styles/Home.module.css';
 import { useEffect } from 'react';
-import { useContentContext } from '../contexts/ContentContext';
+import { useCovidStatsContext } from '../contexts/CovidStatsContext';
 import format from '../utility/format';
 
 const Logaritim = dynamic(() => import('../components/Logaritim'), {
@@ -21,7 +21,7 @@ const Logaritim = dynamic(() => import('../components/Logaritim'), {
 });
 
 const Home: NextPage = () => {
-  const { results, total, loadData, loadTotalData } = useContentContext();
+  const { results, total, loadData, loadTotalData } = useCovidStatsContext();
   const cards = useMemo(
     () => [
       { id: 'chartCasosTotais', label: 'Casos confirmados', value: format(results[1]?.totalCases) },
