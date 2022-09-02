@@ -27,7 +27,7 @@ const Home: NextPage = () => {
       { id: 'chartCasosTotais', label: 'Casos confirmados', value: format(results[1]?.totalCases) },
       { id: 'chartTotalMorte', label: 'Óbitos confirmados', value: format(results[1]?.deaths) },
       { id: 'chartCasosNovos', label: 'Casos do Dia', value: format(results[1]?.newCases) },
-      { id: 'chartHistoricoMorte', label: 'Óbitos do Dia', value: format(results[1]?.newDeaths) },
+      { id: 'chartHistoricoMorte', label: 'Óbitos/Dia', value: format(results[1]?.newDeaths) },
     ],
     [results]
   );
