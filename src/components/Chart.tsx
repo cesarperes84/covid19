@@ -53,7 +53,7 @@ const Chart = ({ id, label, total }: { id: string; label: string; total: any }):
       const dictionary = {
         chartCasosTotais: 'totalCases',
         chartTotalMorte: 'deaths',
-        chartItem: 'newCases',
+        chartCasosNovos: 'newCases',
         chartHistoricoMorte: 'newDeaths',
       };
 
@@ -107,7 +107,9 @@ const Chart = ({ id, label, total }: { id: string; label: string; total: any }):
       chartItem.dispose();
     };
   }, [total]);
-  
+  if (id === "chartCasosNovos") {
+    console.log('total', total);
+  }
   return (
     <Grid item key={label} xs={12} sm={6} md={3}>
       <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
