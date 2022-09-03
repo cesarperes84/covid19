@@ -19,7 +19,7 @@ type DataType = {
 type DictionaryType = {
   chartCasosTotais: string;
   chartTotalMorte: string;
-  chartItem: string;
+  chartCasosNovos: string;
   chartHistoricoMorte: string;
 };
 
