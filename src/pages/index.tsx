@@ -10,11 +10,10 @@ import Map from "../components/Map";
 import Table from "../components/Table";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-
+import format from "../utility/format";
 import styles from "../styles/Home.module.css";
 import { useEffect } from "react";
 import { useCovidStatsContext } from "../contexts/CovidStatsContext";
-import format from "../utility/format";
 
 const Logaritim = dynamic(() => import("../components/Logaritim"), {
   ssr: false,
@@ -53,6 +52,30 @@ const Home: NextPage = () => {
     loadTotalData();
   }, []);
 
+  const resultsUF = useMemo(() => {
+    let items: any[] = [];
+    let i = 0;
+    if(results) {
+      results.map(
+        (item) => {
+          i = i + 1;
+          if(i > 1) {
+              items.push({
+                id: i,
+                state: format(item?.state),
+                newCases: format(item?.newCases),
+                totalCases: format(item?.totalCases),
+                newDeaths: format(item?.newDeaths),
+                deaths: format(item?.deaths),
+                vaccinated: format(item?.vaccinated),
+              });
+          }
+        }
+      );
+    }
+    return items;
+  }, [results]);
+
   return (
     <>
       <Head>
@@ -72,7 +95,7 @@ const Home: NextPage = () => {
           <Logaritim total={total} />
           <Charts cards={cards} total={total} />
           <Grid container sx={{ py: 8 }} maxWidth="xl">
-            <Grid item spacing={4} xs={12}>
+            <Grid item xs={12}>
               <Typography
                 gutterBottom
                 variant="h5"
@@ -82,11 +105,11 @@ const Home: NextPage = () => {
                 Casos de Corona Vírus por Estado
               </Typography>
             </Grid>
-            <Grid item spacing={4} xs={12} md={6}>
-              <Table results={results} />
+            <Grid item xs={12} md={6}>
+              <Table results={resultsUF} />
             </Grid>
-            <Grid item spacing={4} xs={12}  md={6} style={{ textAlign: "center" }}>
-              <Map />
+            <Grid item xs={12}  md={6} style={{ textAlign: "center" }}>
+              <Map results={resultsUF} />
             </Grid>
           </Grid>
         </main>

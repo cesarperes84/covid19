@@ -6,6 +6,7 @@ export enum Types {
 }
 
 export type ResultType = {
+  state: string;
   newCases: string;
   totalCases: string;
   newDeaths: string;
