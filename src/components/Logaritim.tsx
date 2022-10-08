@@ -86,11 +86,10 @@ const Logaritim = ({ total }: { total: any }) => {
         range.label.fill = range.grid.stroke;
         range.label.verticalCenter = "bottom";
       }
-    }
-
     return () => {
       chartLog.dispose();
     };
+  }
   }, [total]);
 
   return (
