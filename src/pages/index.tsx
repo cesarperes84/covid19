@@ -26,22 +26,22 @@ const Home: NextPage = () => {
       {
         id: "chartCasosTotais",
         label: "Casos confirmados",
-        value: format(results[1]?.totalCases),
+        value: results.length > 0 ? format(results[1]?.totalCases) : 0,
       },
       {
         id: "chartTotalMorte",
         label: "Óbitos confirmados",
-        value: format(results[1]?.deaths),
+        value: results.length > 0 ? format(results[1]?.deaths) : 0,
       },
       {
         id: "chartCasosNovos",
         label: "Casos do Dia",
-        value: format(results[1]?.newCases),
+        value: results.length > 0 ? format(results[1]?.newCases) : 0,
       },
       {
         id: "chartHistoricoMorte",
         label: "Óbitos/Dia",
-        value: format(results[1]?.newDeaths),
+        value: results.length > 0 ? format(results[1]?.newDeaths) : 0,
       },
     ],
     [results]
