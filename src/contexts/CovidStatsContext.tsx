@@ -57,7 +57,9 @@ const CovidStatsProvider = ({ children }: Props): JSX.Element => {
     getDailyStats()
       .then((response: { data: any }) => {
         let data = csv2JSON(response.data);
+        
         data = data.filter(
+          // @ts-ignore
           ({ date, state }) =>
             state === "TOTAL" &&
             (date === "2020-03-01" ||
