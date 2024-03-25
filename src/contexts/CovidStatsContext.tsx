@@ -67,7 +67,6 @@ const CovidStatsProvider = ({ children }: Props): JSX.Element => {
             state === "TOTAL" &&
             (date.includes(dates))
         );
-        console.log("data", data);
         dispatchCovidStats({ type: Types.SetTotalResults, payload: data });
       })
       .catch(() => {

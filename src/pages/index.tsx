@@ -21,7 +21,6 @@ const Logaritim = dynamic(() => import("../components/Logaritim"), {
 
 const Home: NextPage = () => {
   const { results, total, loadData, loadTotalData } = useCovidStatsContext();
-  console.log('results', results);
   const cards = useMemo(
     () => [
       {

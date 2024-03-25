@@ -13,7 +13,6 @@ am4core.useTheme(am4themes_dark);
 
 const Logaritim = ({ total }: { total: any[] }) => {
   const chart = useRef(null);
-  console.log('total3', total);
   useEffect(() => {
     if (total.length > 0) {
       let dateActual = new Date();

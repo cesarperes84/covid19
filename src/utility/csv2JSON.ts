@@ -16,12 +16,9 @@ const csv2JSON = (csv: string) => {
         result.push(obj);
   
     }
-    console.log('result', result);
     // @ts-ignore
-    // const xxx = JSON.parse(result);
-    console.log('xxx', typeof xxx);
-    //return result; //JavaScript object
-    return result; //JSON
+   
+    return result; 
   };
   
   export default csv2JSON;
