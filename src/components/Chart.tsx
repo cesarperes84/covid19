@@ -49,7 +49,7 @@ const Chart = ({ id, label, total }: { id: string; label: string; total: any }):
       chartItem.responsive.enabled = true;
     }
 
-    total.map((data: { [x: string]: any; date: string }) => {
+    total?.map((data: { [x: string]: any; date: string }) => {
       const dictionary = {
         chartCasosTotais: 'totalCases',
         chartTotalMorte: 'deaths',

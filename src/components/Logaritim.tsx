@@ -11,11 +11,11 @@ import am4lang_pt_BR from "@amcharts/amcharts4/lang/pt_BR";
 
 am4core.useTheme(am4themes_dark);
 
-const Logaritim = ({ total }: { total: any }) => {
+const Logaritim = ({ total }: { total: any[] }) => {
   const chart = useRef(null);
-  console.log();
+  console.log('total3', total);
   useEffect(() => {
-    if (total) {
+    if (total.length > 0) {
       let dateActual = new Date();
       // tema global
       am4core.useTheme(am4themes_dark);
@@ -28,7 +28,7 @@ const Logaritim = ({ total }: { total: any }) => {
           chartLog.responsive.enabled = true;
         }
 
-        total.map((data: { date: any; totalCases: any; _id: any }) => {
+        total?.map((data: { date: any; totalCases: any; _id: any }) => {
           const dateEvent = data.date;
 
           // array novos casos por dia

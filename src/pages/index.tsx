@@ -21,27 +21,28 @@ const Logaritim = dynamic(() => import("../components/Logaritim"), {
 
 const Home: NextPage = () => {
   const { results, total, loadData, loadTotalData } = useCovidStatsContext();
+  console.log('results', results);
   const cards = useMemo(
     () => [
       {
         id: "chartCasosTotais",
         label: "Casos confirmados",
-        value: results.length > 0 ? format(results[1]?.totalCases) : 0,
+        value: results.length > 0 ? format(results[0]?.totalCases) : 0,
       },
       {
         id: "chartTotalMorte",
         label: "Óbitos confirmados",
-        value: results.length > 0 ? format(results[1]?.deaths) : 0,
+        value: results.length > 0 ? format(results[0]?.deaths) : 0,
       },
       {
         id: "chartCasosNovos",
         label: "Casos do Dia",
-        value: results.length > 0 ? format(results[1]?.newCases) : 0,
+        value: results.length > 0 ? format(results[0]?.newCases) : 0,
       },
       {
         id: "chartHistoricoMorte",
         label: "Óbitos/Dia",
-        value: results.length > 0 ? format(results[1]?.newDeaths) : 0,
+        value: results.length > 0 ? format(results[0]?.newDeaths) : 0,
       },
     ],
     [results]
@@ -59,7 +60,7 @@ const Home: NextPage = () => {
       results.map(
         (item) => {
           i = i + 1;
-          if(i > 1) {
+          if(i > 1 && i <= 28) {
               items.push({
                 id: i,
                 state: format(item?.state),
@@ -75,7 +76,7 @@ const Home: NextPage = () => {
     }
     return items;
   }, [results]);
-
+  
   return (
     <>
       <Head>
@@ -92,7 +93,7 @@ const Home: NextPage = () => {
         <main className={styles.main}>
           <Header />
           <Cards cards={cards} />
-          <Logaritim total={total} />
+          <Logaritim total={total || []} />
           <Charts cards={cards} total={total} />
           <Grid container sx={{ py: 8 }} maxWidth="xl">
             <Grid item xs={12}>
