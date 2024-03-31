@@ -53,7 +53,6 @@ const CovidStatsProvider = ({ children }: Props): JSX.Element => {
   }, []);
 
   const loadTotalData = useCallback(() => {
-    const dates = 
     dispatchCovidStats({
       type: Types.SetStatusTotalResults,
       payload: "loading",
@@ -65,7 +64,7 @@ const CovidStatsProvider = ({ children }: Props): JSX.Element => {
           // @ts-ignore
           ({ date, state }) =>
             state === "TOTAL" &&
-            (date.includes(dates))
+            (dates.includes(date))
         );
         dispatchCovidStats({ type: Types.SetTotalResults, payload: data });
       })
