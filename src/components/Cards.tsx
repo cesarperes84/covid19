@@ -16,10 +16,10 @@ const Cards = ({ cards }: { cards: any }): JSX.Element => (
         <Grid item key={label} xs={12} sm={6} md={3}>
           <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
             <CardContent sx={{ flexGrow: 1 }}>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h5" sx={{ fontWeight: 'bold' }}>
                 {label}
               </Typography>
-              <Typography component="h2" variant="h2">
+              <Typography component="h2" variant="h2" sx={{ color: 'red', fontWeight: 'bold', fontSize: '3rem' }}>
                 {value}
               </Typography>
             </CardContent>

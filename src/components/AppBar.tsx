@@ -3,8 +3,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 const AppBar = (): JSX.Element => (
-    <AppBarMui position="relative">
-    <Toolbar>
+    <AppBarMui position="relative" sx={{ backgroundColor: 'red' }}>
+    <Toolbar >
       <Typography variant="h5" color="inherit" noWrap fontWeight="bold">
         Corona Vírus pelo Brasil
       </Typography>
